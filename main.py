@@ -30,13 +30,17 @@ feature_labels = [
     "NON NEGATIVE URINE ANALYSIS"
 ]
 
-st.title("Pregnancy Risk Classifier (Meta-Ensemble)")
+st.title("Safe Motherhood Predictor (SMP)")
 
 st.markdown("Provide values for the 10 clinical features below:")
 
 user_input = []
 for feature in feature_labels:
-    value = st.number_input(label=feature, value=0.0, format="%.4f")
+    if feature in ["HEIGHT", "BMI"]:
+        value = st.number_input(label=feature, value=0.0, format="%.4f")
+    else:
+        value = st.number_input(label=feature)
+        
     user_input.append(value)
 
 if st.button("Classify"):
