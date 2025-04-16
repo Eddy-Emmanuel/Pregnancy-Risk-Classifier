@@ -39,7 +39,7 @@ for feature in feature_labels:
     if feature in ["HEIGHT", "BMI"]:
         value = st.number_input(label=feature, value=0.0, format="%.4f")
     else:
-        value = st.number_input(label=feature)
+        value = st.number_input(label=feature, value=0)
         
     user_input.append(value)
 
