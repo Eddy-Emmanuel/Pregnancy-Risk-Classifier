@@ -15,33 +15,53 @@ loaded_meta_model_2 = joblib.load("meta_model_2.pkl")
 
 # Class labels
 class_indices = {0: "High", 1: "Mid", 2: "Low"}
+urine_mapper = {"NEGATIVE":0, "POSITIVE":1, "GLUCOSE TRACE":2, "PROTEIN TRACE":3}
 
-# Feature labels
-feature_labels = [
-    "MATERNAL AGE",
-    "GESTATIONAL AGE",
-    "PARITY",
-    "WEIGHT",
-    "HEIGHT",
-    "BMI",
-    "SYSTOLIC BP",
-    "DIASTOLIC BP",
-    "URINE ANALYSIS",
-    "NON NEGATIVE URINE ANALYSIS"
-]
-
-st.title("Safe Motherhood Predictor (SMP)")
+st.title("URINE ANALYSIS (Proteinuria)")
 
 st.markdown("Provide values for the 10 clinical features below:")
 
-user_input = []
-for feature in feature_labels:
-    if feature in ["HEIGHT", "BMI"]:
-        value = st.number_input(label=feature, value=0.0, format="%.4f")
-    else:
-        value = st.number_input(label=feature, value=0)
-        
-    user_input.append(value)
+maternal_age = st.number_input("Maternal Age", min_value=15, max_value=50, step=1, value=29)
+
+gestational_age = st.number_input("Gestational Age (weeks)", min_value=3.0, max_value=42.0, step=0.5, value=32.0)
+
+parity = st.number_input("Parity (Number of pregnancies)", min_value=0, max_value=8, step=1, value=1)
+
+weight = st.number_input("Weight (kg)", min_value=24.0, max_value=130.0, step=1.0, value=69.0)
+
+height = st.number_input("Height (m)", min_value=1.0, max_value=2.2, step=0.01, value=1.65)
+
+bmi = st.number_input("BMI", min_value=10.0, max_value=50.0, step=0.1, value=27.3)
+
+systolic_bp = st.number_input("Systolic BP (mmHg)", min_value=80, max_value=200, step=1, value=120)
+
+diastolic_bp = st.number_input("Diastolic BP (mmHg)", min_value=40, max_value=120, step=1, value=66)
+
+urine_analysis = urine_mapper[st.selectbox(
+    "Urine Analysis",
+    options=[
+        'NEGATIVE', 
+        'POSITIVE', 
+        'GLUCOSE TRACE', 
+        'PROTEIN TRACE'
+    ]
+)]
+
+non_negative_urine_analysis = urine_analysis if urine_analysis == 0 else 1
+
+user_input = [
+    maternal_age,
+    gestational_age,
+    parity,
+    weight,
+    height,
+    bmi,
+    systolic_bp,
+    diastolic_bp,
+    urine_analysis,
+    non_negative_urine_analysis
+]
+
 
 if st.button("Classify"):
     input_array = np.expand_dims(user_input, axis=0)
