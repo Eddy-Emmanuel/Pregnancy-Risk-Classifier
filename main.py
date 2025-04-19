@@ -19,7 +19,7 @@ urine_mapper = {"NEGATIVE":0, "POSITIVE":1, "GLUCOSE TRACE":2, "PROTEIN TRACE":3
 
 st.title("Safe Motherhood Predictor (SMP)")
 
-maternal_age = st.number_input("Maternal Age", min_value=15, max_value=50, step=1, value=29)
+maternal_age = st.number_input("Maternal Age (years)", min_value=15, max_value=50, step=1, value=29)
 
 gestational_age = st.number_input("Gestational Age (weeks)", min_value=3.0, max_value=42.0, step=0.5, value=32.0)
 
