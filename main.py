@@ -15,7 +15,7 @@ loaded_meta_model_2 = joblib.load("meta_model_2.pkl")
 
 # Class labels
 class_indices = {0: "High", 1: "Mid", 2: "Low"}
-urine_mapper = {"NEGATIVE":0, "POSITIVE":1, "GLUCOSE TRACE":2, "PROTEIN TRACE":3}
+urine_mapper = {"0":0, "+1":1, "+2":2, "+3":3}
 
 st.title("Safe Motherhood Predictor (SMP)")
 
@@ -38,10 +38,10 @@ diastolic_bp = st.number_input("Diastolic BP (mmHg)", min_value=40, max_value=12
 urine_analysis = urine_mapper[st.selectbox(
     "Urine Analysis (Proteinuria)",
     options=[
-        'NEGATIVE', 
-        'POSITIVE', 
-        'GLUCOSE TRACE', 
-        'PROTEIN TRACE'
+        '0', 
+        '+1', 
+        '+2', 
+        '+3'
     ]
 )]
 
