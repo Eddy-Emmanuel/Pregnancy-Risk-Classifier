@@ -19,21 +19,64 @@ urine_mapper = {"0":0, "+1":1, "+2":2, "+3":3}
 
 st.title("Safe Motherhood Predictor (SMP)")
 
-maternal_age = st.number_input("Maternal Age (years)", min_value=15, max_value=50, step=1, value=29)
+st.markdown(
+    """
+    <style>
+    .stApp {
+        background-color: #e6f2ff;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
 
-gestational_age = st.number_input("Gestational Age (weeks)", min_value=3.0, max_value=42.0, step=0.5, value=32.0)
+maternal_age = st.number_input("Maternal Age (years)", 
+                               min_value=15, 
+                               max_value=50,
+                               step=1,
+                               value=29)
 
-parity = st.number_input("Parity (Number of pregnancies)", min_value=0, max_value=8, step=1, value=1)
+gestational_age = st.number_input("Gestational Age (weeks)", 
+                                  min_value=3.0,
+                                  max_value=42.0, 
+                                  step=0.5, 
+                                  value=32.0)
 
-weight = st.number_input("Weight (kg)", min_value=24.0, max_value=130.0, step=1.0, value=69.0)
+parity = st.number_input("Parity (Number of pregnancies)", 
+                         min_value=0, 
+                         max_value=8, 
+                         step=1, 
+                         value=1)
 
-height = st.number_input("Height (m)", min_value=1.0, max_value=2.2, step=0.01, value=1.65)
+weight = st.number_input("Weight (kg)", 
+                         min_value=24.0,
+                         max_value=130.0, 
+                         step=1.0, 
+                         value=69.0)
 
-bmi = st.number_input("BMI", min_value=10.0, max_value=50.0, step=0.1, value=27.3)
+height = st.number_input("Height (m)", 
+                         min_value=1.0, 
+                         max_value=2.2, 
+                         step=0.01, 
+                         value=1.65)
 
-systolic_bp = st.number_input("Systolic BP (mmHg)", min_value=80, max_value=200, step=1, value=120)
+bmi = st.number_input("BMI",
+                      min_value=10.0, 
+                      max_value=50.0, 
+                      step=0.1, 
+                      value=27.3)
 
-diastolic_bp = st.number_input("Diastolic BP (mmHg)", min_value=40, max_value=120, step=1, value=66)
+systolic_bp = st.number_input("Systolic BP (mmHg)", 
+                              min_value=80, 
+                              max_value=200, 
+                              step=1, 
+                              value=120)
+
+diastolic_bp = st.number_input("Diastolic BP (mmHg)",
+                               min_value=40, 
+                               max_value=120,
+                               step=1, 
+                               value=66)
 
 urine_analysis = urine_mapper[st.selectbox(
     "Urine Analysis (Proteinuria)",
