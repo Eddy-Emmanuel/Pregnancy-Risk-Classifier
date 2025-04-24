@@ -22,18 +22,15 @@ st.title("Safe Motherhood Predictor (SMP)")
 st.markdown(
     """
     <style>
-    .stApp {
-        background-color: #ffffff; /* Optional: Change app background too */
-    }
-    /* Light blue background for all input widgets */
-    input, textarea, select {
+    input[type="number"] {
         background-color: #e6f2ff !important;
-        color: #000000 !important;
+        color: black !important;
     }
     </style>
     """,
     unsafe_allow_html=True
 )
+
 
 
 maternal_age = st.number_input("Maternal Age (years)", 
