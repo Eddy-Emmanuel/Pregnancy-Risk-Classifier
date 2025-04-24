@@ -23,12 +23,18 @@ st.markdown(
     """
     <style>
     .stApp {
-        background-color: #e6f2ff;
+        background-color: #ffffff; /* Optional: Change app background too */
+    }
+    /* Light blue background for all input widgets */
+    input, textarea, select {
+        background-color: #e6f2ff !important;
+        color: #000000 !important;
     }
     </style>
     """,
     unsafe_allow_html=True
 )
+
 
 maternal_age = st.number_input("Maternal Age (years)", 
                                min_value=15, 
