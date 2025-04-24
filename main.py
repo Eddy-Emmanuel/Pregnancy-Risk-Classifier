@@ -19,20 +19,6 @@ urine_mapper = {"0":0, "+1":1, "+2":2, "+3":3}
 
 st.title("Safe Motherhood Predictor (SMP)")
 
-st.markdown(
-    """
-    <style>
-    input[type="number"] {
-        background-color: #e6f2ff !important;
-        color: black !important;
-    }
-    </style>
-    """,
-    unsafe_allow_html=True
-)
-
-
-
 maternal_age = st.number_input("Maternal Age (years)", 
                                min_value=15, 
                                max_value=50,
